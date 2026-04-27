@@ -1,0 +1,166 @@
+@use '../../../../public/scss/app' as *;
+
+.badge-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25px;
+  font-family: "Kode Mono", monospace;
+}
+
+// lanyard hardware
+.lanyard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+
+  .strap {
+    width: 30px;
+    height: 60px;
+    background: linear-gradient(135deg, $v1-color, $v2-color);
+    border-radius: 4px 4px 15px 15px;
+  }
+  .clip {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ccc;
+    background: linear-gradient(to bottom, #eee, #ccc);
+    border-radius: 50%;
+    margin-top: -25px; // -5px
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+    z-index: 5;
+  }
+}
+
+.card-stack {
+  position: relative;
+  width: 228px; // 240
+  height: 365px; // 400
+  margin-top: -20px; // -10px
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px var(--shadow-color);
+}
+
+// underneath card
+.card-back {
+  background: linear-gradient(135deg, $v2-color, $v1-color);
+  transform: rotate(-15deg) translateX(-40px);
+  z-index: 1;
+  color: white;
+
+  .logo-wrapper {
+    transform: rotate(90deg);
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: absolute;
+    top: 14vh;
+    left: -48px;
+
+    .text {
+      margin-left: 10px;
+    }
+  }
+}
+
+// mqin card
+.card-front {
+  background: white;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+
+  .photo-area {
+    height: 70%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .info-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+    backdrop-filter: blur(15px);
+    background: var(--glass-bg);
+    
+    // blue wave shape
+    .curved-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, $v2-color, $v1-color);
+      clip-path: polygon(0 0, 75% 0, 50% 100%, 0% 100%);
+      z-index: -1;
+    }
+
+    .content {
+      padding: 10px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: white;
+
+      .name {
+        font-size: 1.6rem;
+        margin: 0;
+        line-height: 1.1;
+        font-weight: 600;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.64rem;
+        opacity: 0.9;
+        color: #eee;
+      }
+    }
+  }
+}
+
+.card-front {
+  border: 1px solid var(--border-color);
+  
+  .info-overlay {
+    backdrop-filter: blur(12px);
+    background: rgba(82, 91, 251, 0.3);
+    
+    .curved-bg {
+      opacity: 0.95;
+    }
+  }
+}
+
+.card-stack:hover {
+  .card-back {
+    transform: rotate(-10deg) translateX(-35px) translateY(-5px);
+    transition: transform 0.3s ease;
+  }
+  .card-front {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+  }
+}
+
+.id {
+  background: rgba(0,0,0,0.2);
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-family: monospace;
+  letter-spacing: 0.5px;
+}

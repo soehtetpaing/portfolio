@@ -1,0 +1,119 @@
+@if (project) {
+<div class="project-modal" (click)="onOverlayClick($event)">
+  <div class="project-modal-content" (click)="onContentClick($event)">
+    <button class="close-modal" (click)="onClose()" aria-label="Close">
+      <span class="material-symbols-outlined">
+        close
+      </span>
+    </button>
+    
+    <div class="expanded-content">
+      <div class="expanded-left">
+        <h3>{{ project.title }}</h3>
+        <p class="project-category">{{ project.category }}</p>
+
+        <div class="expanded-left-scroll">
+          <p class="project-description">{{ project.description }}</p>
+        
+          <div class="project-details">
+            <h4>{{ 'projects.technologies' | translate }}</h4>
+            <div class="tech-list">
+              @for (tech of project.tech; track $index) {
+                <span>{{ tech }}</span>
+              }
+            </div>
+            
+            <h4>{{ 'projects.features' | translate }}</h4>
+            <ul class="features-list">
+              @for (feature of project.features; track $index) {
+                <li>
+                  <span class="material-symbols-outlined">
+                    key
+                  </span>
+                  {{ feature }}
+                </li>
+              }
+            </ul>
+          </div>
+          
+        </div>        
+        <!-- <div class="project-links">
+          <a [href]="project.demoLink" target="_blank" rel="noopener" class="btn small">Live Demo</a>
+          <a [href]="project.githubLink" target="_blank" rel="noopener" class="btn small outline">GitHub</a>
+        </div> -->
+      </div>
+      
+      <div class="expanded-right">
+        <div class="carousel-container">
+          <div class="carousel-main">
+            <!-- skeleton image -->
+            @if (!mainImageLoaded) {
+              <div class="image-skeleton">
+                <div class="skeleton-shimmer"></div>
+              </div>
+            }
+
+            <img 
+              [src]="detailImageLists[currentImageIndex]" 
+              [alt]="project.title + ' details ' + (currentImageIndex + 1)"
+              (load)="onMainImageLoad()"
+              (error)="onImageError($event)"
+              class="carousel-image"
+              [class.image-visible]="mainImageLoaded">
+            
+            @if (detailImageLists.length > 1) {
+              <button class="carousel-nav prev" (click)="prevImage()" aria-label="Previous image">
+                <span class="material-symbols-outlined">
+                  chevron_left
+                </span>
+              </button>
+              <button class="carousel-nav next" (click)="nextImage()" aria-label="Next image">
+                <span class="material-symbols-outlined">
+                  chevron_right
+                </span>
+              </button>
+            }
+          </div>
+          
+          @if (detailImageLists.length > 1) {
+            <div class="carousel-thumbnails">
+              @for (image of detailImageLists; track $index) {
+                <div 
+                  class="thumbnail" 
+                  [class.active]="currentImageIndex === $index"
+                  (click)="setCurrentImage($index)">
+
+                  <!-- skeleton image -->
+                  @if (!thumbnailLoadedStates[$index]) {
+                    <div class="thumbnail-skeleton">
+                      <div class="skeleton-shimmer"></div>
+                    </div>
+                  }
+
+                  <img 
+                    [src]="image" 
+                    [alt]="'Thumbnail ' + ($index + 1)"
+                    (load)="onThumbnailLoad($index)"
+                    (error)="onThumbnailError($event, $index)"
+                    [class.thumbnail-visible]="thumbnailLoadedStates[$index]">
+                </div>
+              }
+            </div>
+          }
+          
+          @if (detailImageLists.length > 1) {
+            <div class="image-counter">
+              {{ currentImageIndex + 1 }} / {{ detailImageLists.length }}
+            </div>
+          }
+        </div>
+
+        <div class="project-links">
+          <a [href]="project.demoLink" target="_blank" rel="noopener" class="btn small">{{ 'projects.liveDemo' | translate }}</a>
+          <a [href]="project.githubLink" target="_blank" rel="noopener" class="btn small outline">{{ 'projects.github' | translate }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}

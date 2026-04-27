@@ -1,0 +1,21 @@
+<div class="project-card" (click)="onCardClick()">
+  <div class="project-image">
+    <img [src]="project.image" [alt]="project.title" (error)="onImageError($event)">
+    <!-- <div class="image-overlay">
+      <span class="expand-icon">+</span>
+      <span class="expand-text">Click to view details</span>
+    </div> -->
+  </div>
+  <div class="project-info">
+    <h3>{{ project.title }}</h3>
+    <p class="project-category">{{ project.category }}</p>
+    <div class="tech-stack">
+      @for (tech of project.tech.slice(0, 3); track $index) {
+        <span>{{ tech }}</span>
+      }
+      @if (project.tech.length > 3) {
+        <span class="more">+{{ project.tech.length - 3 }}</span>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+{
+  "app": "ပို့တ်ဖိုလီယို",
+  "nav": {
+    "home": "ပင်မစာမျက်နှာ",
+    "about": "မိတ်ဆက်",
+    "experience": "အတွေ့အကြုံ",
+    "projects": "ပရောဂျက်များ",
+    "resume": "ကိုယ်ရေးအကျဥ်း",
+    "contact": "ဆက်သွယ်ရန်"
+  },
+  "home": {
+    "greeting": "👋 မင်္ဂလာပါ၊ ကျွန်တော်ကတော့",
+    "title": "Creative<br>Developer & Designer",
+    "subtitle": "ခေတ်မီနည်းပညာများဖြင့် ဒစ်ဂျစ်တယ်အတွေ့အကြုံများကို ဖန်တီးခြင်း",
+    "viewWork": "ပရောဂျက်များ",
+    "contactMe": "ဆက်သွယ်ရန်",
+    "scrollDown": "အောက်သို့ဆင်းပါ"
+  },
+  "about": {
+    "title": "မိတ်ဆက်",
+    "highlight": "Software Engineer with hands-on experiences leading full-stack development across POS systems, REST APIs, and web/mobile applications. Skilled in system integration, performance optimization, and modernizing legacy systems. Proven ability to manage small teams, deliver scalable solutions, and align technical implementations with business requirements.",
+    "description": ""
+  },
+  "stats": {
+    "years": "နှစ်အတွေ့အကြုံ",
+    "projects": "ပြီးစီးသည့်ပရောဂျက်များ",
+    "clients": "ကျေနပ်သောဖောက်သည်များ",
+    "technologies": "နည်းပညာများ"
+  },
+  "experience": {
+    "title": "အလုပ်အတွေ့အကြုံ",
+    "responsibilities": "တာဝန်များ",
+    "technologies": "အသုံးပြုသည့် နည်းပညာများ",
+    "descriptionId1": "Startup အဆင့်တွင် intuitive user interface များနှင့် seamless user experience များကို ဖန်တီးရန် အာရုံစိုက်ခဲ့ပြီး ၂၀၂၄ Best Project Award၊ ITPC တွင် တတိယဆုနှင့် ၂၀၁၈ Student Exhibition – Sri Ksetra တွင် Top 10 အဆင့်ရရှိခဲ့ပါသည်။",
+    "descriptionId2": "Student Communication UCSP — ကျောင်းသားများ၊ ဆရာများနှင့် အုပ်ချုပ်ရေးမှူးများအတွက် ကြေညာချက်များ၊ မက်ဆေ့ချ်နှင့် ပူးပေါင်းဆောင်ရွက်မှုများကို လွယ်ကူစွာ ဆက်သွယ်ရန် ပလက်ဖောင်းတစ်ခုအပါအဝင် မတူညီသော full-stack web applications များကို တည်ဆောက်ခဲ့ပါသည်။",
+    "descriptionId3": "လက်ရှိတွင် CityMart development team ကို ဦးဆောင်ပြီး web နှင့် desktop application များကို scalable ဖြစ်သော solution များအဖြစ် ပေးအပ်နိုင်ရန် တည်ဆောက်ကာ၊ နည်းပညာဆိုင်ရာ အကောင်အထည်ဖော်မှုများကို လုပ်ငန်းလိုအပ်ချက်များနှင့် ညှိနှိုင်းဆောင်ရွက်လျက်ရှိပါသည်။"
+  },
+  "projects": {
+    "title": "အထူး ပရောဂျက်များ",
+    "filterAll": "အားလုံး",
+    "filterWeb": "ဝက်ဘ်အက်ပ်များ",
+    "filterAPI": "REST ဆားဗစ်များ",
+    "filterMVC": "MVC အက်ပ်များ",
+    "filterMobile": "မိုဘိုင်းအက်ပ်များ",
+    "technologies": "အသုံးပြုထားသော နည်းပညာများ",
+    "features": "အဓိကအင်္ဂါရပ်များ",
+    "liveDemo": "လိုင်ဒီမို",
+    "github": "ဂစ်ဟပ်"
+  },
+  "resume": {
+    "title": "ကိုယ်ရေးအကျဥ်း",
+    "viewDetails": "အသေးစိတ်ကြည့်ရန်"
+  },
+  "contact": {
+    "title": "ဆက်သွယ်ရန်",
+    "workTogether": "အတူတူအလုပ်လုပ်ကြရအောင်",
+    "haveProject": "စိတ်ထဲမှာ ပရောဂျက်တစ်ခုရှိလား။ ကြားရတာ ဝမ်းသာပါတယ်။ လွတ်လပ်စွာ ဆက်သွယ်နိုင်ပါတယ်။",
+    "email": "အီးမေးလ်",
+    "phone": "ဖုန်း",
+    "location": "တည်နေရာ",
+    "hours": "အလုပ်ချိန်",
+    "followMe": "နောက်လိုက်လုပ်ပါ",
+    "sendMessage": "စာပို့ရန်",
+    "name": "သင့်နာမည်",
+    "emailPlaceholder": "သင့်အီးမေးလ်",
+    "subject": "အကြောင်းအရာ",
+    "message": "သင့်စာ",
+    "send": "စာပို့ရန်"
+  },
+  "footer": {
+    "copyright": "မူပိုင်ခွင့်များ လက်ဝယ်ရှိသည်"
+  },
+  "validation": {
+    "nameRequired": "နာမည် လိုအပ်သည်",
+    "emailValid": "မှန်ကန်သော အီးမေးလ် ထည့်ပါ",
+    "messageRequired": "စာ လိုအပ်သည်"
+  },
+  "success": {
+    "messageSent": "စာအောင်မြင်စွာပို့ပြီးပါပြီ။"
+  }
+}

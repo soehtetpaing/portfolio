@@ -1,0 +1,81 @@
+{
+  "app": "포트폴리오",
+  "nav": {
+    "home": "메인 페이지",
+    "about": "소개",
+    "experience": "경력",
+    "projects": "프로젝트",
+    "resume": "이력서",
+    "contact": "연락처"
+  },
+  "home": {
+    "greeting": "👋 안녕하세요, 저는",
+    "title": "Creative<br>Developer & Designer",
+    "subtitle": "최신 기술로 디지털 경험을 제작합니다",
+    "viewWork": "프로젝트 보기",
+    "contactMe": "문의하기",
+    "scrollDown": "아래로 스크롤"
+  },
+  "about": {
+    "title": "소개",
+    "highlight": "Software Engineer with hands-on experiences leading full-stack development across POS systems, REST APIs, and web/mobile applications. Skilled in system integration, performance optimization, and modernizing legacy systems. Proven ability to manage small teams, deliver scalable solutions, and align technical implementations with business requirements.",
+    "description": ""
+  },
+  "stats": {
+    "years": "년 경력",
+    "projects": "완료된 프로젝트",
+    "clients": "만족한 클라이언트",
+    "technologies": "기술"
+  },
+    "experience": {
+    "title": "업무 경력",
+    "responsibilities": "주요 업무",
+    "technologies": "사용 기술",
+    "descriptionId1": "스타트업 개발 초기 단계에서 직관적인 UI와 원활한 UX를 전문으로 개발하며, 2024 Best Project Award 수상, ITPC 3위, 2018 Student Exhibition – Sri Ksetra Top 10 달성.",
+    "descriptionId2": "Student Communication UCSP — 플랫폼은 학생, 교사 및 관리자를 위한 원활한 공지, 메시지 전송 및 협업을 가능하게 하며, 다양한 풀스택 웹 애플리케이션이 개발되었습니다.",
+    "descriptionId3": "현재 CityMart 개발 팀을 리드하여 웹 및 데스크톱 애플리케이션을 구축하고, 확장 가능한 솔루션을 제공하며, 기술 구현 사항을 비즈니스 요구 사항에 맞추고 있습니다."
+  },
+  "projects": {
+    "title": "주요 프로젝트",
+    "filterAll": "전체",
+    "filterWeb": "웹 앱",
+    "filterAPI": "REST 서비스",
+    "filterMVC": "MVC 앱",
+    "filterMobile": "모바일 앱",
+    "technologies": "사용된 기술",
+    "features": "주요 기능",
+    "liveDemo": "라이브 데모",
+    "github": "깃허브"
+  },
+  "resume": {
+    "title": "이력서",
+    "viewDetails": "자세히 보기"
+  },
+  "contact": {
+    "title": "연락하기",
+    "workTogether": "함께 작업합시다",
+    "haveProject": "진행 중인 프로젝트가 있으신가요? 듣고 싶습니다. 편하게 연락주세요!",
+    "email": "이메일",
+    "phone": "전화",
+    "location": "위치",
+    "hours": "근무 시간",
+    "followMe": "팔로우",
+    "sendMessage": "메시지 보내기",
+    "name": "이름",
+    "emailPlaceholder": "이메일",
+    "subject": "제목",
+    "message": "메시지",
+    "send": "보내기"
+  },
+  "footer": {
+    "copyright": "모든 권리 보유"
+  },
+  "validation": {
+    "nameRequired": "이름이 필요합니다",
+    "emailValid": "유효한 이메일을 입력하세요",
+    "messageRequired": "메시지가 필요합니다"
+  },
+  "success": {
+    "messageSent": "메시지가 성공적으로 전송되었습니다!"
+  }
+}

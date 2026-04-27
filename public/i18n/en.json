@@ -1,0 +1,81 @@
+{
+  "app": "Portfolio",
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "resume": "Resume",
+    "contact": "Contact"
+  },
+  "home": {
+    "greeting": "👋 Hello, I'm",
+    "title": "Creative<br>Developer & Designer",
+    "subtitle": "Crafting digital experiences with modern technologies",
+    "viewWork": "View Work",
+    "contactMe": "Contact Me",
+    "scrollDown": "Scroll Down"
+  },
+  "about": {
+    "title": "About Me",
+    "highlight": "Software Engineer with hands-on experiences leading full-stack development across POS systems, REST APIs, and web/mobile applications. Skilled in system integration, performance optimization, and modernizing legacy systems. Proven ability to manage small teams, deliver scalable solutions, and align technical implementations with business requirements.",
+    "description": ""
+  },
+  "stats": {
+    "years": "Years Experience",
+    "projects": "Projects Completed",
+    "clients": "Happy Clients",
+    "technologies": "Technologies"
+  },
+  "experience": {
+    "title": "Work Experience",
+    "responsibilities": "Key Responsibilities",
+    "technologies": "Technologies Used",
+    "descriptionId1": "Pioneered intuitive user interfaces and seamless user experiences in early-stage startup, securing the 2024 Best Project Award and 3rd place at ITPC; recognized in Top 10 at 2018 Student Exhibition – Sri Ksetra.",
+    "descriptionId2": "Student Communication UCSP — a platform enabling seamless announcements, messaging & collaboration for students, teachers, and administrators, and diverse full-stack web applications was developed.",
+    "descriptionId3": "Currently, leading the CityMart development team in building web & desktop applications to deliver scalable solutions, and align technical implementations with business requirements."
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "filterAll": "All",
+    "filterWeb": "Web Apps",
+    "filterAPI": "REST Services",
+    "filterMVC": "MVC Apps",
+    "filterMobile": "Mobile Apps",
+    "technologies": "Technologies Used",
+    "features": "Key Features",
+    "liveDemo": "Live Demo",
+    "github": "GitHub"
+  },
+  "resume": {
+    "title": "My Resume",
+    "viewDetails": "View Details"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "workTogether": "Let's work together",
+    "haveProject": "Have a project in mind? I'd love to hear about it. Feel free to reach out!",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "hours": "Working Hours",
+    "followMe": "Follow me",
+    "sendMessage": "Send a message",
+    "name": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "subject": "Subject",
+    "message": "Your Message",
+    "send": "Send Message"
+  },
+  "footer": {
+    "copyright": "All rights reserved"
+  },
+  "validation": {
+    "nameRequired": "Name is required",
+    "emailValid": "Please enter a valid email",
+    "messageRequired": "Message is required"
+  },
+  "success": {
+    "messageSent": "Message sent successfully!"
+  }
+}

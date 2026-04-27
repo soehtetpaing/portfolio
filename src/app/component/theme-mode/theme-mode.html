@@ -1,0 +1,42 @@
+<div class="floating-toggles">
+  <div class="toggles-container">
+
+    <!-- language -->
+    <div class="language-wrapper">
+      <button class="toggle-btn lang-btn"
+              (click)="toggleLanguageDropdown($event)"
+              aria-label="Switch language">
+
+        <span class="lang-code font-en">
+          {{ currentLang.toUpperCase() }}
+        </span>
+      </button>
+
+      <!-- dropdown -->
+      <div class="lang-dropdown" [class.open]="isLangOpen">
+        @for (lang of languages; track $index) {
+        <button class="lang-option"
+                [class.active]="currentLang === lang.code"
+                (click)="selectLanguage(lang.code)">
+
+          <span class="flag">
+            <img class="rounded-circle" [src]="lang.image" [alt]="lang.code" width="20" (error)="onImageError($event)">
+          </span>
+          <span [class]="['font-' + lang.code]">{{ lang.name }}</span>
+        </button>
+        }
+      </div>
+    </div>
+
+    <!-- theme -->
+    <button class="toggle-btn theme-btn"
+            (click)="toggleTheme()"
+            aria-label="Toggle theme">
+
+      <mat-icon>
+        {{ isLightTheme ? 'light_mode' : 'dark_mode' }}
+      </mat-icon>
+    </button>
+
+  </div>
+</div>

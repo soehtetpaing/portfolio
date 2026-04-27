@@ -1,0 +1,19 @@
+@if (resume) {
+<div class="modal" (click)="onOverlayClick($event)">
+  <div class="modal-content" (click)="onContentClick($event)">
+    <button class="close-modal" (click)="onClose()" aria-label="Close">
+      <span class="material-symbols-outlined">
+        close
+      </span>
+    </button>
+    <div class="modal-image">
+      <img [src]="resume.image" [alt]="resume.title" (error)="onImageError($event)">
+    </div>
+    <div class="modal-body">
+      <h3>{{ resume.title }}</h3>
+      <span class="category">{{ resume.category }}</span>
+      <p>{{ resume.description }}</p>
+    </div>
+  </div>
+</div>
+}

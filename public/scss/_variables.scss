@@ -1,0 +1,38 @@
+// fonts
+$font-path: "https://cdn.jsdelivr.net/gh/soehtetpaing/cdn-assets@v1.0.2/font";
+$font-en: "Lora", serif;
+$font-mm: "Burma Thin", sans-serif;
+$font-kr: "Gowun Dodum", sans-serif;
+$primary-font: $font-en;
+$secondary-font: "Kode Mono", monospace;
+
+// theme
+$bg-dark: #0f172a;
+$bg-light: #f9fcff;
+$text-light: #f9fcff;
+$text-dark: #0a0a0a;
+
+// colors
+$primary-color: #0072ff;
+$secondary-color: #ff1493;
+$v1-color: #00c6ff;
+$v2-color: #7303c0;
+$v3-color: #ec38bc;
+$v4-color: #fdeff9;
+
+// transitions
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+// breakpoints
+$mobile: 576px;
+$tablet: 768px;
+$desktop: 1024px;
+$wide: 1200px;
+
+// spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-xxl: 4rem;

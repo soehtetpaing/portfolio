@@ -1,0 +1,36 @@
+<div class="badge-container">
+  <div class="lanyard">
+    <div class="strap"></div>
+    <div class="clip"></div>
+  </div>
+
+  <div class="card-stack">
+    <div class="card card-back">
+      <div class="logo-wrapper">
+        <span class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path d="M240-280 40-480l200-200 56 56-143 144 143 144-56 56Zm178 132-76-24 200-640 76 24-200 640Zm302-132-56-56 143-144-143-144 56-56 200 200-200 200Z"/>
+          </svg>
+        </span>
+        <span class="text">{{ employee.company }}</span>
+      </div>
+    </div>
+
+    <div class="card card-front">
+      <div class="photo-area">
+        <img [src]="employee.image" alt="profile" (error)="onImageError($event)">
+      </div>
+      
+      <div class="info-overlay">
+        <div class="curved-bg"></div>
+        <div class="content">
+          <h2 class="name" [innerHTML]="employee.name"></h2>
+          <div class="footer">
+            <span class="tag">{{ employee.tag }}</span>
+            <span class="id">{{ employee.eid }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

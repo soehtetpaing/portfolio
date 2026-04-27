@@ -1,0 +1,60 @@
+@use './variables' as *;
+
+@mixin font-entry($name, $subpath) {
+  @font-face {
+    font-family: "#{$name}";
+    src: url("#{$font-path}/#{$subpath}.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+@mixin glassmorphism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@mixin gradient-text {
+  background: linear-gradient(135deg, $v1-color, $v2-color, $v3-color, $v4-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: $mobile) { @content; }
+  }
+  @if $breakpoint == tablet {
+    @media (max-width: $tablet) { @content; }
+  }
+  @if $breakpoint == desktop {
+    @media (max-width: $desktop) { @content; }
+  }
+  @if $breakpoint == wide {
+    @media (min-width: $wide) { @content; }
+  }
+}
+
+@mixin gradient-border($color1, $color2) {
+  position: relative;
+  border: double 1px transparent;
+  border-radius: 80px;
+  background-image: linear-gradient($bg-dark, $bg-dark), 
+                    linear-gradient(135deg, $color1, $color2);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}

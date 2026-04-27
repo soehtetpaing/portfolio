@@ -1,0 +1,369 @@
+<app-theme-mode></app-theme-mode>
+
+<div class="portfolio-container" [class.menu-open]="menuOpen">
+  <!-- mobile menu toggle -->
+  <button class="menu-toggle" (click)="toggleMenu()" [class.open]="menuOpen" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- sidebar navigation -->
+  <nav class="sidebar" [class.open]="menuOpen">
+    <div class="logo">
+      <h1>{{ app | translate }}</h1>
+      <span class="dot"></span>
+    </div>
+    
+    <ul class="nav-menu">
+      @for (menu of sidebarMenus; track $index) {
+      <li (click)="scrollTo(menu.section)"
+          [class.active]="activeSection === menu.section">
+        <span class="menu-icon material-symbols-outlined">
+          {{ menu.icon}}
+        </span>
+        <span class="menu-text">{{ menu.translateKey | translate}}</span>
+        <span class="menu-indicator"></span>
+      </li>
+      }
+    </ul>
+
+    <div class="social-links">
+      <a [href]="socialLinks.github" target="_blank" rel="noopener" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a [href]="socialLinks.linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a [href]="socialLinks.instagram" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a [href]="socialLinks.viber" target="_blank" rel="noopener" aria-label="Viber">
+        <i class="fab fa-viber"></i>
+      </a>
+    </div>
+
+    <div class="sidebar-footer">
+      <p>&copy; 2026 Portfolio</p>
+    </div>
+  </nav>
+
+  <!-- main content -->
+  <main class="content">
+    <!-- home section -->
+    <section id="home" class="section home-section">
+      <div class="home-container">
+        <!-- left side: text content -->
+        <div class="home-content" data-aos="fade-right">
+          <div class="greeting">{{ 'home.greeting' | translate }}</div>
+          <h1 class="animated-text font-en" [innerHTML]="'home.title' | translate"></h1>
+          <p class="subtitle">{{ 'home.subtitle' | translate }}</p>
+          <div class="cta-buttons">
+            <button class="btn primary" (click)="scrollTo('projects')">{{ 'home.viewWork' | translate }}</button>
+            <button class="btn secondary" (click)="scrollTo('contact')">{{ 'home.contactMe' | translate }}</button>
+          </div>
+        </div>
+        
+        <!-- right side: employee card -->
+        <div class="home-employee-card" data-aos="fade-left">
+          <app-employee-card></app-employee-card>
+        </div>
+      </div>
+      
+      <div class="scroll-indicator" (click)="scrollTo('about')">
+        <span>{{ 'home.scrollDown' | translate }}</span>
+        <i class="fas fa-arrow-down"></i>
+      </div>
+    </section>
+
+    <!-- about section -->
+    <section id="about" class="section about-section">
+      <h2 class="section-title" data-aos="fade-up">{{ 'about.title' | translate }}</h2>
+      <div class="about-grid">
+        <!-- left column: text & stats -->
+        <div class="about-text" data-aos="fade-right">
+          <p class="highlight-text font-en">{{ 'about.highlight' | translate }}</p>
+          <p>{{ 'about.description' | translate }}</p>
+          
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-number">{{ stats.years }}</span>
+              <span class="stat-label">{{ 'stats.years' | translate}}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">{{ stats.projects }}</span>
+              <span class="stat-label">{{ 'stats.projects' | translate}}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">{{ stats.clients }}</span>
+              <span class="stat-label">{{ 'stats.clients' | translate}}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">{{ stats.technologies }}</span>
+              <span class="stat-label">{{ 'stats.technologies' | translate}}</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- right column: skills -->
+        <div class="skills" data-aos="fade-left">
+          @for (skill of skillLists; track $index) {
+            <span class="skill-tag" [style.background]="skill.color + '15'">
+              <img class="me-2" [src]="skill.image" [alt]="skill.name" (error)="onImageError($event)" width="24" height="24">
+              {{ skill.name }}
+            </span>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- experience section -->
+    <section id="experience" class="section experience-section">
+      <h2 class="section-title" data-aos="fade-up">{{ 'experience.title' | translate }}</h2>
+      
+      <div class="experience-timeline">
+        @for (experience of experienceLists; track $index) {
+          <div class="experience-item" 
+              [class.reverse]="$index % 2 !== 0"
+              data-aos="fade-up"
+              [attr.data-aos-delay]="$index * 100">
+            
+            <div class="timeline-line"></div>
+            
+            <div class="timeline-logo">
+              <div class="logo-wrapper" [style.background]="experience.logoColor + '15'">
+                <img class="company-logo-img" [src]="experience.logoUrl" [alt]="experience.company" (error)="onImageError($event)">
+              </div>
+              <div class="logo-glow" [style.background]="experience.logoColor"></div>
+            </div>
+            
+            <div class="experience-card">
+              <div class="card-header">
+                <div class="company-info">
+                  <div class="company-details">
+                    <h3 class="company-name">{{ experience.company }}</h3>
+                    <p class="position">{{ experience.position }}</p>
+                  </div>
+                </div>
+                <div class="period-badge" [style.background]="experience.logoColor + '15'">
+                  <i class="fa-regular fa-calendar" [style.color]="experience.logoColor"></i>
+                  <span>{{ experience.period }}</span>
+                </div>
+              </div>
+              
+              <div class="card-body">
+                <div class="location">
+                  <i class="fa-solid fa-location-dot" [style.color]="experience.logoColor"></i>
+                  <span>{{ experience.location }}</span>
+                </div>
+                
+                <p class="description">{{ experience.description | translate}}</p>
+                
+                <div class="responsibilities">
+                  <h4 [style.color]="experience.logoColor">{{ 'experience.responsibilities' | translate }}</h4>
+                  <ul>
+                    @for (resp of experience.responsibilities; track $index) {
+                      <li>
+                        <span class="material-symbols-outlined" [style.color]="experience.logoColor" [style.fontSize]="'1rem'">
+                          verified
+                        </span>
+                        <span>{{ resp }}</span>
+                      </li>
+                    }
+                  </ul>
+                </div>
+                
+                <div class="tech-stack-exp">
+                  <h4 [style.color]="experience.logoColor">{{ 'experience.technologies' | translate }}</h4>
+                  <div class="tech-tags">
+                    @for (tech of experience.technologies; track $index) {
+                      <span class="tech-tag"
+                            [style.background]="experience.logoColor + '15'"
+                            [style.borderColor]="experience.logoColor + '40'">
+                        {{ tech }}
+                      </span>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- projects section -->
+    <section id="projects" class="section projects-section">
+      <h2 class="section-title" data-aos="fade-up">{{ 'projects.title' | translate }}</h2>
+      
+      <!-- filters -->
+      <div class="project-filters" data-aos="fade-up">
+        @for (filter of projectFilterLists; track $index) {
+          <button (click)="filterProjects(filter.key)"
+                  [class.active]="activeFilter === filter.key">
+            {{ filter.translateKey | translate}}
+          </button>
+        }
+      </div>
+
+      <!-- project grid -->
+       <div class="projects-grid">
+        @for (project of filteredProjects; track $index) {
+          <app-project-card [project]="project"
+            (openModal)="openProjectModal($event)"
+            data-aos="fade-up"
+            [attr.data-aos-delay]="$index * 100">
+          </app-project-card>
+        }
+      </div>
+
+    </section>
+
+    <!-- resume section -->
+    <section id="resume" class="section resume-section">
+      <h2 class="section-title" data-aos="fade-up">{{ 'resume.title' | translate}}</h2>
+      
+      <!-- resume grid -->
+      <div class="resume-grid">
+        @for (resume of resumeLists; track $index) {
+          <div class="resume-item"
+              data-aos="zoom-in"
+              [attr.data-aos-delay]="$index * 50">
+            <div class="resume-image">
+              <img [src]="resume.image" [alt]="resume.title" (error)="onImageError($event)">
+              <div class="resume-overlay">
+                <h3>{{ resume.title }}</h3>
+                <p>{{ resume.category }}</p>
+                <a [href]="resume.link" target="_blank">
+                  <button class="view-btn">{{ 'resume.viewDetails' | translate}}</button>
+                </a>
+                <!-- <button class="view-btn" (click)="openResumeModal(resume)">{{ 'resume.viewDetails' | translate}}</button> -->
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- contact section -->
+    <section id="contact" class="section contact-section">
+      <h2 class="section-title" data-aos="fade-up">{{ 'contact.title' | translate }}</h2>
+      
+      <div class="contact-container">
+        <div class="contact-info" data-aos="fade-right">
+          <h3>{{ 'contact.workTogether' | translate }}</h3>
+          <p>{{ 'contact.haveProject' | translate }}</p>
+          
+          <div class="contact-details">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>{{ contactUs.email }}</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>{{ contactUs.phone }}</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>{{ contactUs.address }}</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-clock"></i>
+              <span>{{ contactUs.workingHour }}</span>
+            </div>
+          </div>
+
+          <div class="contact-social">
+            <h4>{{ 'contact.followMe' | translate }}</h4>
+            <div class="social-icons">
+              <a [href]="socialLinks.github" target="_blank"><i class="fab fa-github"></i></a>
+              <a [href]="socialLinks.linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a [href]="socialLinks.instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a [href]="socialLinks.viber" target="_blank"><i class="fab fa-viber"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <form #contactForm="ngForm" class="contact-form" data-aos="fade-left" (ngSubmit)="onSubmit(contactForm)">
+          <h3>{{ 'contact.sendMessage' | translate }}</h3>
+          
+          <div class="form-group">
+            <input type="text" 
+                   name="name" 
+                   placeholder="{{ 'contact.name' | translate }}" 
+                   [(ngModel)]="contact.name" 
+                   required
+                   #name="ngModel">
+            @if (name.invalid && name.touched) {
+              <div class="error-message">
+                {{ 'validation.nameRequired' | translate}}
+              </div>
+            }
+          </div>
+          
+          <div class="form-group">
+            <input type="email" 
+                   name="email" 
+                   placeholder="{{ 'contact.emailPlaceholder' | translate }}" 
+                   [(ngModel)]="contact.email" 
+                   required 
+                   email
+                   #email="ngModel">
+            @if (email.invalid && email.touched) {
+              <div class="error-message">
+                {{ 'validation.emailValid' | translate}}
+              </div>
+            }
+          </div>
+          
+          <div class="form-group">
+            <input type="text" 
+                   name="subject" 
+                   placeholder="{{ 'contact.subject' | translate }}" 
+                   [(ngModel)]="contact.subject" 
+                   #subject="ngModel">
+          </div>
+          
+          <div class="form-group">
+            <textarea name="message" 
+                      rows="5" 
+                      placeholder="{{ 'contact.message' | translate }}" 
+                      [(ngModel)]="contact.message" 
+                      required
+                      #message="ngModel"></textarea>
+            @if (message.invalid && message.touched) {
+              <div class="error-message">
+                {{ 'validation.messageRequired' | translate }}
+              </div>
+            }
+          </div>
+          
+          <button type="submit" 
+                  class="btn primary" 
+                  [disabled]="contactForm.invalid">
+            {{ 'contact.send' | translate }}
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+      <p>&copy; 2026 Soe Htet Paing. All rights reserved.</p>
+    </footer>
+  </main>
+</div>
+
+<app-project-modal
+  [project]="selectedProject"
+  (close)="closeProjectModal()">
+</app-project-modal>
+
+<app-resume-modal
+  [resume]="selectedResume" 
+  (close)="closeResumeModal()">
+</app-resume-modal>
+
+<div class="">
+  <app-loading></app-loading>
+</div>

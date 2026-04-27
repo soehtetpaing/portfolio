@@ -1,0 +1,50 @@
+@use '../../../../public/scss/app' as *;
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.loading-overlay {
+  display: flex;
+  background-color: var(--shadow-color);
+  padding: 5px 15px;
+  border-radius: 8px;
+  align-items: center;
+  gap: 10px;
+}
+
+.gradient-spinner {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  position: relative;
+  background: linear-gradient(135deg, $v1-color, $v2-color, $v3-color, $v4-color);
+  mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#loading-text {
+  font-size: 0.9rem;
+  padding: 5px 15px;
+  color: var(--text-color);
+}
