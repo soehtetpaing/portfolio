@@ -4,21 +4,21 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class DataroomService {
+export class DataCenterService {
   /** component usage example:
    * 
    * version = "";
    * apiUrl = "";
    * loading$!: Observable<boolean>;
    * 
-   * constructor(private room: DataroomService) {}
+   * constructor(private dataCenter: DataCenterService) {}
    * 
    * ngOnInit(): void {
-   *  this.version = this.room.getVersion(); // get stored data
-   *  this.room._apiUrl$.subscribe(apiUrl => { // get live data = [(ngModel)]
+   *  this.version = this.dataCenter.getVersion(); // get stored data
+   *  this.dataCenter._apiUrl$.subscribe(apiUrl => { // get live data = [(ngModel)]
    *   this.apiUrl = apiUrl;
    *  });
-   *  this.loading$ = this.room._loading$;
+   *  this.loading$ = this.dataCenter._loading$;
    * }
    * 
    * 

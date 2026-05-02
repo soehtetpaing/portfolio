@@ -7,8 +7,8 @@ import { ContactForm } from '../interface/portfolio-model';
   providedIn: 'root',
 })
 export class NotiService {
-  http = inject(HttpService);
-  baseUrl = app.notiUrl;
+  private http = inject(HttpService);
+  private baseUrl = app.notiUrl;
   
   // contact us email send
   sendMessage(formdata: ContactForm) {
@@ -22,8 +22,6 @@ export class NotiService {
       projectcode: app.projectcode
     }
 
-    console.log(body);
     return this.http.post(url, body);
-
   }
 }

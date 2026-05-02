@@ -121,12 +121,17 @@
         line-height: 1.8;
         margin-bottom: 2rem;
         color: rgba(var(--text-color), 0.9);
+        text-align: justify;
       }
 
       .expanded-left-scroll {
         max-height: 65%;
         overflow-y: auto;
         padding-right: 0.5rem;
+
+        &::-webkit-scrollbar {
+          width: 0px;
+        }
         
         h4 {
           font-size: 1.1rem;
@@ -206,7 +211,7 @@
           border-radius: 16px;
           overflow: hidden;
           background: var(--border-color);
-          min-height: 285px;
+          // min-height: 285px;
 
           .image-skeleton {
             position: absolute;
@@ -298,6 +303,7 @@
         }
         
         .carousel-thumbnails {
+          max-width: 480px;
           display: flex;
           gap: 0.75rem;
           margin-top: 1rem;
@@ -305,17 +311,7 @@
           padding-bottom: 0.5rem;
           
           &::-webkit-scrollbar {
-            height: 4px;
-          }
-          
-          &::-webkit-scrollbar-track {
-            background: rgba(var(--primary-rgb), 0.05);
-            border-radius: 10px;
-          }
-          
-          &::-webkit-scrollbar-thumb {
-            background: var(--scroll-color);
-            border-radius: 10px;
+            height: 0px;
           }
           
           .thumbnail {
@@ -381,6 +377,10 @@
                 opacity: 1;
               }
             }  
+          }
+
+          @media (max-width: $mobile) {
+            max-width: 380px;
           }
         }
         

@@ -15,10 +15,11 @@ import { Experience, experiences } from './config/experiences.config';
 import { Resume, resumes } from './config/resumes.config';
 import { Project, projectFilters, projects } from './config/projects.config';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { DataroomService } from './utils/dataroom.service';
-import { ToastService } from './utils/toast.service';
+import { DataCenterService } from './utils/datacenter.service';
+import { AuthService } from './service/auth.service';
 import { NotiService } from './service/noti.service';
-import { finalize } from 'rxjs';
+import { ToastService } from './utils/toast.service';
+import { finalize, switchMap } from 'rxjs';
 import { Loading } from "./component/loading/loading";
 
 declare var AOS: any;
@@ -31,6 +32,7 @@ declare var AOS: any;
 export class App {
   translate = inject(TranslateService);
   storage = inject(LocalStorageService);
+  authService = inject(AuthService);
   notiService = inject(NotiService);
 
   app = 'app';
@@ -62,7 +64,7 @@ export class App {
     subject: '',
   };
 
-  constructor(private room: DataroomService, private toast: ToastService) {
+  constructor(private dataCenter: DataCenterService, private toast: ToastService) {
     this.filteredProjects = [...this.projectLists];
   }
 
@@ -166,11 +168,13 @@ export class App {
 
   onSubmit(form: NgForm) {
     if (this.contact.email && this.contact.message) {
-      this.room.setLoading(true);
-      this.notiService.sendMessage(this.contact).pipe(
+      this.dataCenter.setLoading(true);
+
+      this.authService.getJwtTokens().pipe(
+        switchMap(() => this.notiService.sendMessage(this.contact)),
         finalize(() => {
           setTimeout(() => {
-            this.room.setLoading(false);
+            this.dataCenter.setLoading(false);
           }, 1000);
         })
       ).subscribe({
